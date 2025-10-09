@@ -1,5 +1,6 @@
 import minhaFoto from "../assets/img-pv.jpeg";
 import { FileDown } from 'lucide-react';
+import curriculo from "../assets/Curriculo Maykon Carvalho - Fullstack.pdf"
 
 export default function About() {
   return (
@@ -35,9 +36,9 @@ export default function About() {
         {/* BOTÕES */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-3">
           <a
-            href="#"
-            download
-            className="bg-blue-600 text-white px-8 py-3 rounded-full shadow hover:bg-blue-700 transition flex gap-2 items-center"
+            href={curriculo}
+            download="Curriculo Maykon Carvalho - Fullstack.pdf"
+            className="flex justify-center items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-full shadow hover:bg-blue-700 transition text-center w-full sm:w-auto"
           >
             <FileDown size={20}/> Download CV
           </a>
