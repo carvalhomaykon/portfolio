@@ -5,53 +5,44 @@ import ProjectStack from "../components/Projects";
 import Skills from '../components/Skills';
 import Footer from '../components/Footer';
 import Experiences from '../components/Experiences';
+import TechMarquee from '../components/TechMarquee';
+import useReveal from '../hooks/useReveal';
+
+function Section({ id, title, children }) {
+    return (
+        <section id={id} className="mx-auto max-w-6xl px-4 py-20 sm:px-8 sm:py-28">
+            <h2 data-reveal className="font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl mb-12">
+                {title}
+            </h2>
+            {children}
+        </section>
+    );
+}
 
 function Portfolio() {
+    useReveal();
 
     return (
         <>
             <NavBar />
-            <main className="pt-20">
-                
+            <main>
                 <About/>
 
-                <div className='border-b-2 border-indigo-500 m-16'></div>
+                <TechMarquee/>
 
-                <section
-                    id="projects"
-                    className="flex flex-col items-center justify-center text-center bg-gray-50" 
-                >
-                    <h2 className="text-4xl font-bold">Projects</h2> 
-
+                <Section id="projects" title="Projects">
                     <ProjectStack/>
-                </section>
+                </Section>
 
-                <div className='border-b-2 border-indigo-500 m-16'></div>
-
-                <section
-                    id="skills"
-                    className='flex flex-col items-center justify-center text-center bg-gray-50'
-                >
-                    <h2 className="text-4xl font-bold">Skills</h2> 
-
+                <Section id="skills" title="Skills">
                     <Skills/>
-                </section>
+                </Section>
 
-                <div className='border-b-2 border-indigo-500 m-16'></div>
-
-                <section
-                    id="experience"
-                    className='flex flex-col items-center justify-center text-center bg-gray-50'
-                >
-                    <h2 className="text-4xl font-bold">Experience</h2> 
-
+                <Section id="experience" title="Experience">
                     <Experiences/>
-                </section>
-
-                <div className='border-b-2 border-indigo-500 m-16'></div>
-
-                <Footer/>
+                </Section>
             </main>
+            <Footer/>
         </>
     );
 }
